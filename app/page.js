@@ -7,7 +7,7 @@ export default function Home() {
     {
       role: "assistant",
       content:
-        "What would you like to explore today? We can look at learning, community, or any question on your mind.",
+        "Hi, I’m Vada. What are you curious about today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -53,37 +53,37 @@ export default function Home() {
   return (
     <main className="app">
       <header className="header">
-        <div className="header-title">Indigenous-Centered Tutor</div>
-        <div className="header-badge">Semi-Socratic</div>
+        <div className="header-title">Lifespace’s Vada: AI Tutor</div>
+        <div className="header-badge">Gentle Guided Inquiry</div>
       </header>
 
       <div className="layout">
         <aside className="nav">
-          <div className="nav-title">Spaces</div>
-          <button className="nav-item active">Open Inquiry</button>
-          <button className="nav-item">Learning Planning</button>
-          <button className="nav-item">Decolonizing the Topic</button>
+          <div className="nav-title">Modes</div>
+          <button className="nav-item active">Open Questions</button>
+          <button className="nav-item">Planning Help</button>
+          <button className="nav-item">Deepen Understanding</button>
         </aside>
 
         <section className="content">
           <div className="section-card">
-            <div className="section-label">Conversation</div>
+            <div className="section-label">Welcome</div>
             <h1 className="section-title">
-              Ask, reflect, connect to your lived world.
+              A tutor that thinks with you.
             </h1>
             <p className="section-body">
-              This tutor will often answer with a question first, bringing in
-              perspectives from Indigenous and other marginalized communities
-              when they can deepen understanding.
+              Vada will usually answer with a question first. It tries to
+              understand what you already know, then adds short, clear ideas
+              to help you move one step further.
             </p>
           </div>
 
           <div className="chat-container">
             <div className="chat-header">
               <div>
-                <div className="chat-title">Tutor</div>
+                <div className="chat-title">Vada</div>
                 <div className="chat-subtitle">
-                  Centering voices outside the usual canon
+                  Ask something and explore it together.
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function Home() {
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask anything, or say how you’re feeling about learning…"
+                placeholder="What would you like to talk about?"
               />
               <button type="submit" disabled={loading}>
                 Send
@@ -120,4 +120,3 @@ export default function Home() {
     </main>
   );
 }
-
