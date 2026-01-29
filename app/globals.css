@@ -242,6 +242,33 @@ body {
 
   .chat-container {
     max-width: 100%;
+    min-height: 400px;
+  }
+
+  .chat-body {
+    height: 320px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .content {
+    overflow-x: hidden;
+  }
+}
+
+
+  .nav {
+    display: none;
+  }
+
+  .section-card {
+    max-width: 100%;
+  }
+
+  .chat-container {
+    max-width: 100%;
   }
 }
 
