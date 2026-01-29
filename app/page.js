@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function VadaTutor() {
   const [hasCode, setHasCode] = useState(false)
@@ -9,7 +9,14 @@ export default function VadaTutor() {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
-  const [mode, setMode] = useState('open') // open, planning, deepen
+  const [mode, setMode] = useState('open')
+  const chatBodyRef = useRef(null)
+
+  useEffect(() => {
+    if (chatBodyRef.current) {
+      chatBodyRef.current.scrollTop = chatBodyRef.current.scrollHeight
+    }
+  }, [messages])
 
   const loadAssignment = async () => {
     if (!code.trim()) {
@@ -19,10 +26,9 @@ export default function VadaTutor() {
 
     setLoadingCode(true)
     try {
-      // TODO: Replace with your actual dashboard URL
-     const response = await fetch(
-  `/api/get-assignment?code=${code.toUpperCase()}`
-)
+      const response = await fetch(
+        `/api/get-assignment?code=${code.toUpperCase()}`
+      )
 
       if (response.ok) {
         const data = await response.json()
@@ -70,7 +76,7 @@ export default function VadaTutor() {
         body: JSON.stringify({
           messages: [...messages, userMessage],
           mode,
-          assignmentInstructions, // Pass instructions to API
+          assignmentInstructions,
         }),
       })
 
@@ -88,7 +94,6 @@ export default function VadaTutor() {
     }
   }
 
-  // If no code entered yet, show code input screen
   if (!hasCode) {
     return (
       <div className="app">
@@ -170,8 +175,6 @@ export default function VadaTutor() {
     )
   }
 
-  // Rest of your existing chat interface goes here
-  // (Keep your existing layout, nav, modes, chat UI, etc.)
   return (
     <div className="app">
       <header className="header">
@@ -222,7 +225,7 @@ export default function VadaTutor() {
               </div>
             </div>
 
-            <div className="chat-body">
+            <div className="chat-body" ref={chatBodyRef}>
               {messages.map((msg, idx) => (
                 <div key={idx} className={`message ${msg.role}`}>
                   <span>{msg.content}</span>
