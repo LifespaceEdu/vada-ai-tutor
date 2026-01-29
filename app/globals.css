@@ -225,12 +225,16 @@ body {
     display: none;
   }
 
+  .content {
+    padding: 12px;
+  }
+
   .section-card {
     max-width: 100%;
   }
 
   .chat-container {
     max-width: 100%;
-    width: 100%;
+    width: calc(100vw - 24px);
   }
 }
