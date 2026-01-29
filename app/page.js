@@ -20,9 +20,9 @@ export default function VadaTutor() {
     setLoadingCode(true)
     try {
       // TODO: Replace with your actual dashboard URL
-      const response = await fetch(
-        `https://vada-dashboard.vercel.app/api/get-assignment?code=${code.toUpperCase()}`
-      )
+     const response = await fetch(
+  `/api/get-assignment?code=${code.toUpperCase()}`
+)
 
       if (response.ok) {
         const data = await response.json()
