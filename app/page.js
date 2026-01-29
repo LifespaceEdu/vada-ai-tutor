@@ -105,7 +105,7 @@ export default function VadaTutor() {
       <div className="app">
         <header className="header">
           <div>
-            <h1 className="header-title">Vada: Lifespace AI Tutor</h1>
+            <h1 className="header-title">Vada: Socratic AI Tutor</h1>
           </div>
           <div className="header-badge">Gentle Guided Inquiry</div>
         </header>
