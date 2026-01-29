@@ -61,7 +61,9 @@ LANGUAGE GUIDELINES:
     })
 
     if (!response.ok) {
-      throw new Error('API request failed')
+      const errorText = await response.text()
+      console.error('API error response:', response.status, errorText)
+      throw new Error(`API request failed: ${response.status} - ${errorText}`)
     }
 
     const data = await response.json()
@@ -71,7 +73,7 @@ LANGUAGE GUIDELINES:
   } catch (error) {
     console.error('Chat error:', error)
     return NextResponse.json(
-      { error: 'Failed to process chat request' },
+      { error: `Failed to process chat request: ${error.message}` },
       { status: 500 }
     )
   }
