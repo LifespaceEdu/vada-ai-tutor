@@ -1,8 +1,13 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Indigenous-Centered Tutor",
-  description: "Semi-Socratic AI tutor centering Indigenous and marginalized perspectives.",
+  title: "Vada AI Tutor",
+  description: "A tutor that thinks with you.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -12,4 +17,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
 
