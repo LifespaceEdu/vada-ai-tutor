@@ -97,7 +97,6 @@ body {
 .content {
   padding: 20px 24px 80px;
   position: relative;
-  overflow-x: hidden;
 }
 
 .section-card {
@@ -132,7 +131,6 @@ body {
 .chat-container {
   margin-top: 16px;
   max-width: 480px;
-  min-height: 400px;
   background: rgba(5, 5, 5, 0.98);
   border-radius: 20px;
   border: 1px solid rgba(15, 23, 42, 0.9);
@@ -162,7 +160,7 @@ body {
 
 .chat-body {
   padding: 10px 12px;
-  height: 320px;
+  max-height: 320px;
   overflow-y: auto;
   font-size: 0.86rem;
 }
@@ -219,10 +217,6 @@ body {
 }
 
 @media (max-width: 800px) {
-  body {
-    overflow-x: hidden;
-  }
-
   .layout {
     grid-template-columns: 1fr;
   }
@@ -231,20 +225,12 @@ body {
     display: none;
   }
 
-  .content {
-    overflow-x: hidden;
-  }
-
   .section-card {
     max-width: 100%;
   }
 
   .chat-container {
     max-width: 100%;
-    min-height: 400px;
-  }
-
-  .chat-body {
-    height: 320px;
+    width: 100%;
   }
 }
