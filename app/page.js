@@ -80,14 +80,20 @@ export default function VadaTutor() {
         }),
       })
 
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`)
+      }
+
       const data = await response.json()
-      setMessages([...messages, userMessage, { role: 'assistant', content: data.message }])
+      const assistantMessage = data.message || data.error || 'Sorry, I received an empty response. Please try again.'
+      
+      setMessages([...messages, userMessage, { role: 'assistant', content: assistantMessage }])
     } catch (error) {
       console.error('Chat failed:', error)
       setMessages([
         ...messages,
         userMessage,
-        { role: 'assistant', content: 'Sorry, I encountered an error. Please try again.' },
+        { role: 'assistant', content: `Error: ${error.message}. Please try again.` },
       ])
     } finally {
       setLoading(false)
